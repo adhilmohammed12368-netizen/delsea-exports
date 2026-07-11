@@ -146,7 +146,6 @@ export function ContactBlock({ compact = false }: { compact?: boolean }) {
             <ContactChip icon={<MapPin className="h-4 w-4" />} title="Visit" body={site.address} />
             <ContactChip icon={<Mail className="h-4 w-4" />} title="Email" body={site.email} href={`mailto:${site.email}`} />
             <ContactChip icon={<Phone className="h-4 w-4" />} title="Phone" body={site.phone} href={`tel:${site.phone.replace(/\s/g, "")}`} />
-            <ContactChip icon={<MessageCircle className="h-4 w-4" />} title="WhatsApp" body="Message our export desk" href={site.whatsappUrl} />
             <div className="overflow-hidden rounded-2xl border border-foreground/10">
               <iframe
                 title="Delsea Exports — Kochi"

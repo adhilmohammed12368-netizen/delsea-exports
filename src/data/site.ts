@@ -10,10 +10,10 @@ export const site = {
   state: "Kerala",
   country: "India",
   address: "Kochi, Kerala 682001, India",
-  email: "exports@delsea.in",
-  phone: "+91 484 000 0000",
-  whatsapp: "+919447000000",
-  whatsappUrl: "https://wa.me/919447000000",
+  email: "office@delseaexports.com",
+  phone:"+91 9544091705",
+  whatsapp: "+91 9544091705",
+  whatsappUrl: "https://wa.me/919544091705",
 };
 
 export const certifications = [
