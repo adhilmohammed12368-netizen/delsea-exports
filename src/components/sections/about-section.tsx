@@ -31,7 +31,7 @@ export function AboutSection() {
             className="space-y-5 text-base leading-relaxed text-muted-foreground"
           >
               <p>
-                Founded in 2013 in Kochi, Kerala, Delsea Exports began with a simple mission: to deliver premium-quality seafood from India's coastline to customers around the world. Through a commitment to quality, reliability, and customer satisfaction, the company steadily built its reputation in international markets.
+                Founded in 2012 in Kochi, Kerala, Delsea Exports began with a simple mission: to deliver premium-quality seafood from India's coastline to customers around the world. Through a commitment to quality, reliability, and customer satisfaction, the company steadily built its reputation in international markets.
               </p>
 
               <p>

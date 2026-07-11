@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-ocean.jpg";
 
 const stats = [
-  { k: "2013", v: "Established" },
+  { k: "2012", v: "Established" },
   { k: "4", v: "Continents Served" },
   { k: "22+", v: "Species Exported" },
   { k: "BRCGS ", v: "Certified Facility" },
