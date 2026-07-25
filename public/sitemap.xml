@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>/products</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>/markets</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>/certifications</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>/contact</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+
+  <url>
+    <loc>https://delseaexports.in/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://delseaexports.in/products</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://delseaexports.in/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://delseaexports.in/markets</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://delseaexports.in/certifications</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://delseaexports.in/contact</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
