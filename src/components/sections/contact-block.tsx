@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { z } from "zod";
-import { Mail, MapPin, MessageCircle, Phone, Send, Check } from "lucide-react";
+import { Mail, MapPin, Send, Check } from "lucide-react";
 import { site } from "@/data/site";
 import { products } from "@/data/products";
 import emailjs from "@emailjs/browser";
