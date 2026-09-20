@@ -34,9 +34,6 @@ export function Footer() {
               <a href={`mailto:${site.email}`} className="link-underline">{site.email}</a>
             </li>
             <li>
-              <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="link-underline">{site.phone}</a>
-            </li>
-            <li>
               <a href={site.whatsappUrl} target="_blank" rel="noreferrer" className="link-underline">WhatsApp</a>
             </li>
           </ul>
