@@ -158,10 +158,9 @@ export function MarketsMap() {
             transition={{ duration: 0.55, delay: 0.1 }}
             className="mt-4 font-['DM_Sans'] text-base text-[#A9BFC9] sm:text-lg"
           >
-            Every shipment begins at the Port of Kochi and reaches{" "}
+            Our export network spans{" "}
             <span className="text-[#D4A24C]">{totalCountries} countries</span>{" "}
-            across {totalContinents} continents — cold-chain tracked, door to
-            door.
+            across {totalContinents} continents, with refrigerated export logistics.
           </motion.p>
         </div>
       </div>

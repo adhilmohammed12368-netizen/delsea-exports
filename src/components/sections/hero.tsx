@@ -5,8 +5,8 @@ import heroImage from "@/assets/hero-ocean.jpg";
 
 const stats = [
   { k: "2012", v: "Established" },
-  { k: "4", v: "Continents Served" },
-  { k: "22+", v: "Species Exported" },
+  { k: "Global", v: "Export Markets" },
+  { k: "5", v: "Key Product Lines" },
   { k: "BRCGS ", v: "Certified Facility" },
 ];
 
@@ -73,7 +73,7 @@ export function Hero() {
           transition={{ duration: 1, ease, delay: 0.5 }}
           className="mt-6 max-w-xl text-base text-white/75 md:text-lg"
         >
-          Premium frozen seafood exporter serving global markets with uncompromising quality and international food safety standards.
+          Direct seafood processor and exporter based in Kochi, India. Frozen seafood processed and packed to international buyer specifications.
         </motion.p>
 
         <motion.div

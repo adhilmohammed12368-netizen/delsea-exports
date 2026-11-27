@@ -3,6 +3,7 @@ import { Layout } from "@/components/Layout";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Products from "@/pages/Products";
+import ProductDetail from "@/pages/ProductDetail";
 import Markets from "@/pages/Markets";
 import Certifications from "@/pages/Certifications";
 import Contact from "@/pages/Contact";
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/products/:slug" element={<ProductDetail />} />
         <Route path="/markets" element={<Markets />} />
         <Route path="/certifications" element={<Certifications />} />
         <Route path="/contact" element={<Contact />} />
