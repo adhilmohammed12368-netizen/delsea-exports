@@ -9,11 +9,13 @@ import emailjs from "@emailjs/browser";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Required").max(100),
-  company: z.string().trim().max(120).optional().or(z.literal("")),
+  company: z.string().trim().min(1, "Required").max(120),
   country: z.string().trim().min(1, "Required").max(80),
   email: z.string().trim().email("Enter a valid email").max(255),
   phone: z.string().trim().max(40).optional().or(z.literal("")),
   product: z.string().trim().max(80).optional().or(z.literal("")),
+  quantity: z.string().trim().max(80).optional(),
+  port: z.string().trim().max(120).optional(),
   message: z.string().trim().min(10, "A short note helps us reply faster").max(1500),
 });
 
@@ -58,7 +60,7 @@ export function ContactBlock({ compact = false }: { compact?: boolean }) {
           email: data.email,
           phone: data.phone,
           product: data.product,
-          message: data.message,
+          message: [data.message, data.quantity ? `Estimated quantity: ${data.quantity}` : "", data.port ? `Destination port: ${data.port}` : ""].filter(Boolean).join("\n"),
         },
         "Q0X5sQwDq4GS3M0k0"
       );
@@ -83,7 +85,7 @@ export function ContactBlock({ compact = false }: { compact?: boolean }) {
               Start a <span className="italic text-[var(--gold)]">conversation.</span>
             </h2>
             <p className="mt-5 text-muted-foreground">
-              Tell us what you need — species, forms, volumes, destination — and our export team will reply within one business day.
+              Tell us what you need — species, forms, volumes, destination — and our export team will review your requirements.
             </p>
           </div>
         )}
@@ -99,7 +101,7 @@ export function ContactBlock({ compact = false }: { compact?: boolean }) {
           >
             <div className="grid gap-5 sm:grid-cols-2">
               <Field name="name" label="Name" error={errors.name} required />
-              <Field name="company" label="Company" error={errors.company} />
+              <Field name="company" label="Company" error={errors.company} required />
               <Field name="country" label="Country" error={errors.country} required />
               <Field name="email" label="Email" type="email" error={errors.email} required />
               <Field name="phone" label="Phone" error={errors.phone} />
@@ -119,6 +121,8 @@ export function ContactBlock({ compact = false }: { compact?: boolean }) {
                   <option value="Other">Other / Mixed</option>
                 </select>
               </div>
+              <Field name="quantity" label="Estimated quantity (MT / containers)" error={errors.quantity} />
+              <Field name="port" label="Destination port" error={errors.port} />
             </div>
 
             <div className="mt-5">
@@ -127,7 +131,7 @@ export function ContactBlock({ compact = false }: { compact?: boolean }) {
                 id="message"
                 name="message"
                 rows={5}
-                placeholder="Volumes, forms, destination port…"
+                placeholder="Size grades, packing, glazing and other requirements…"
                 className="mt-2 w-full rounded-xl border border-foreground/15 bg-background p-4 text-sm outline-none transition focus:border-[var(--gold)]"
               />
               {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
@@ -139,7 +143,7 @@ export function ContactBlock({ compact = false }: { compact?: boolean }) {
               </p>
             )}
             <div className="mt-8 flex flex-wrap items-center justify-between gap-3">
-              <p className="text-xs text-muted-foreground">We reply within one business day.</p>
+              <p aria-live="polite" className="text-xs text-muted-foreground">{sent ? "Your enquiry has been submitted." : "Our export team will review your requirements."}</p>
               <button
                 type="submit"
                 disabled={submitting || sent}
