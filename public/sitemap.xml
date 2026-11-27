@@ -2,37 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://delseaexports.in/</loc>
+    <loc>https://www.delseaexports.in/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://delseaexports.in/products</loc>
+    <loc>https://www.delseaexports.in/products</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://delseaexports.in/about</loc>
+    <loc>https://www.delseaexports.in/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://delseaexports.in/markets</loc>
+    <loc>https://www.delseaexports.in/markets</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://delseaexports.in/certifications</loc>
+    <loc>https://www.delseaexports.in/certifications</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://delseaexports.in/contact</loc>
+    <loc>https://www.delseaexports.in/contact</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
