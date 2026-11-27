@@ -43,7 +43,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
           ))}
         </div>
         <Link
-          to="/contact"
+          to={`/contact?product=${encodeURIComponent(product.slug)}`}
           className="mt-3 inline-flex h-10 items-center justify-center rounded-full bg-foreground text-xs font-medium uppercase tracking-[0.2em] text-background transition hover:bg-foreground/85"
         >
           Inquire
