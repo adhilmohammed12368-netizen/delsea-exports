@@ -16,8 +16,8 @@ export default function Products() {
   return (
     <div className="bg-background">
       <Seo
-        title="Products — Delsea Exports | 22 Premium Seafood Species"
-        description="Browse 22 species of premium fish, shrimp and cephalopods exported to Europe, the Middle East, Asia and North America."
+        title="Products — Delsea Exports | Frozen Seafood Catalogue"
+        description="Explore our key frozen seafood products and full catalogue of fish, shrimp and cephalopods."
         ogTitle="Products — Delsea Exports"
         ogDescription="Premium fish, shrimp and cephalopods from the Arabian Sea."
         ogUrl="/products"
@@ -31,7 +31,7 @@ export default function Products() {
             Every species, <span className="italic text-[var(--gold-soft)]">processed to spec.</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.9, delay: 0.3 }} className="mt-6 max-w-xl text-white/65">
-            22 premium species from the Arabian Sea — available whole, dressed, filleted, IQF or block, in the cuts and packaging your market demands.
+            Explore our key frozen seafood products. Contact our export team to confirm available processing forms, grades and packing.
           </motion.p>
         </div>
       </header>
