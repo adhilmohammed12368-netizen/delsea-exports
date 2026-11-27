@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
+import { products } from "@/data/products";
 import { Logo } from "./logo";
 import { ThemeToggle } from "./theme-toggle";
 
@@ -16,10 +17,13 @@ const NAV = [
 
 export function NavBar() {
   const [open, setOpen] = useState(false);
+  const [productMenu, setProductMenu] = useState(false);
+  const [mobileProducts, setMobileProducts] = useState(false);
+  const keyProducts = products.filter(p => p.featured);
   const [scrolled, setScrolled] = useState(false);
   const pathname = useLocation().pathname;
 
-  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => { setOpen(false); setProductMenu(false); setMobileProducts(false); }, [pathname]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -30,6 +34,7 @@ export function NavBar() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [open]);
 
   return (
@@ -45,7 +50,12 @@ export function NavBar() {
           <Logo className="shrink-0" />
 
           <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 lg:flex">
-            {NAV.map((item) => (
+            {NAV.map((item) => item.to === "/products" ? (
+              <div key={item.to} className="relative" onMouseLeave={() => setProductMenu(false)}>
+                <button type="button" aria-expanded={productMenu} onClick={() => setProductMenu(v => !v)} onKeyDown={e => { if (e.key === "Escape") setProductMenu(false); }} className="rounded-full px-3.5 py-2 text-sm text-foreground/80 hover:text-foreground">Products ▾</button>
+                {productMenu && <div className="absolute left-0 top-full w-64 rounded-xl border border-foreground/10 bg-background p-2 shadow-xl"><Link to="/products" onClick={() => setProductMenu(false)} className="block rounded-lg px-3 py-2 text-sm font-medium hover:bg-foreground/5">Full product catalogue</Link>{keyProducts.map(p => <Link key={p.slug} to={`/products/${p.slug}`} onClick={() => setProductMenu(false)} className="block rounded-lg px-3 py-2 text-sm hover:bg-foreground/5">{p.name}</Link>)}</div>}
+              </div>
+            ) : (
               <Link
                 key={item.to}
                 to={item.to}
@@ -94,8 +104,8 @@ export function NavBar() {
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-0 z-40 bg-[var(--abyss)] lg:hidden"
           >
-            <div className="container-x flex h-full flex-col pt-24 pb-10">
-              <nav className="flex flex-1 flex-col justify-center gap-1">
+            <div className="container-x flex h-full flex-col overflow-y-auto pt-20 pb-6">
+              <nav className="flex flex-1 flex-col justify-start gap-1 py-4">
                 {NAV.map((item, i) => (
                   <motion.div
                     key={item.to}
@@ -106,10 +116,11 @@ export function NavBar() {
                     <Link
                       to={item.to}
                       onClick={() => setOpen(false)}
-                      className="block py-3 font-display text-5xl text-[var(--pearl)] sm:text-6xl"
+                      className="block py-2 font-display text-3xl text-[var(--pearl)] sm:text-4xl"
                     >
                       {item.label}
                     </Link>
+                    {item.to === "/products" && <><button type="button" onClick={() => setMobileProducts(v => !v)} aria-expanded={mobileProducts} className="pb-2 text-sm text-white/70">Key export products {mobileProducts ? "−" : "+"}</button>{mobileProducts && <div className="space-y-1 pb-2">{keyProducts.map(p => <Link key={p.slug} to={`/products/${p.slug}`} onClick={() => setOpen(false)} className="block py-1 text-sm text-white/80">{p.name}</Link>)}</div>}</>}
                   </motion.div>
                 ))}
               </nav>
