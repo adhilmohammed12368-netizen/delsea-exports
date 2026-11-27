@@ -8,6 +8,7 @@ const gallery = [
   { file: "microbiology-lab", title: "Laboratory workstation", text: "Controlled workspace for quality testing." },
   { file: "hygiene-entrance", title: "Pre-processing entrance", text: "Dedicated hygiene entry area." },
   { file: "processing-hall", title: "Processing hall", text: "Stainless-steel workstations." },
+  { file: "processing-hall-secondary", title: "Additional processing area", text: "Stainless-steel workstations and hygiene facilities." },
   { file: "processing-equipment", title: "Processing equipment", text: "Seafood handling equipment." },
   { file: "cold-storage", title: "Cold storage", text: "Frozen seafood storage." },
 ].map(item => ({ ...item, url: photos[`/src/assets/infrastructure/${item.file}.webp`] })).filter(item => item.url);
@@ -27,6 +28,7 @@ export function InfrastructureGallery() {
               <figcaption className="p-4">
                 <h3 className="font-display text-xl">{item.title}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{item.text}</p>
+                {["processing-hall", "processing-hall-secondary", "processing-equipment", "cold-storage"].includes(item.file) && <p className="mt-2 text-xs text-muted-foreground">Digitally processed image</p>}
               </figcaption>
             </figure>
           ))}
