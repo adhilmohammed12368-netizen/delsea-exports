@@ -15,7 +15,7 @@ export const site = {
 };
 
 export const certifications = [
-  { code: "BRCGS", name: "BRCGS Food Safety", note: "Issue 9 — AA grade" },
+  { code: "BRCGS", name: "BRCGS Food Safety", note: "Current certificate available on request" },
   { code: "ISO", name: "ISO 22000:2018", note: "Food Safety Management" },
   { code: "HACCP", name: "HACCP", note: "Hazard analysis & critical control" },
   { code: "USFDA", name: "USFDA", note: "U.S. Food & Drug Administration" },
@@ -48,10 +48,10 @@ export const processStages = [
   { n: "01", title: "Catch", body: "Sustainably sourced from licensed fleets across the Arabian Sea." },
   { n: "02", title: "Selection", body: "Hand-graded at landing for species, size and absolute freshness." },
   { n: "03", title: "Processing", body: "Cleaned, cut and prepared in a temperature-controlled HACCP environment." },
-  { n: "04", title: "Freezing", body: "Blast & IQF freezing locks in nutrition, color and texture within hours." },
+  { n: "04", title: "Freezing", body: "Freezing methods selected according to product and customer specifications." },
   { n: "05", title: "Quality", body: "Multi-stage inspection — sensory, physical, microbiological and metal-detection." },
   { n: "06", title: "Packaging", body: "Vacuum, glaze and master cartons spec'd to customer and country." },
-  { n: "07", title: "Export", body: "Reefer containers dispatched weekly through Cochin Port to the world." },
+  { n: "07", title: "Export", body: "Refrigerated export shipments through Cochin Port, subject to shipment schedules." },
 ];
 
 export const sustainability = [
@@ -65,7 +65,7 @@ export const sustainability = [
   },
   {
     title: "Food safety",
-    body: "BRCGS AA, ISO 22000:2018, HACCP, USFDA, SFDA and FSSAI — independently audited.",
+    body: "Food safety management and export compliance; current certificates and registrations available on request.",
   },
   {
     title: "International compliance",
