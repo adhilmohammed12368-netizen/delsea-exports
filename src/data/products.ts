@@ -63,7 +63,7 @@ export interface Product {
   featured?: boolean;
 }
 
-export const products: Product[] = [
+const catalog: Product[] = [
   {
     slug: "grouper",
     name: "Grouper",
@@ -261,7 +261,6 @@ export const products: Product[] = [
     forms: ["Whole", "WGGS", "IQF"],
     description: "Silver shoals of the Malabar coast — exceptional oily-fish nutrition at industrial scale.",
     image: sardine,
-    featured: true,
   },
   {
     slug: "anchovy",
@@ -283,12 +282,13 @@ export const products: Product[] = [
   },
   {
     slug: "leather-jacket",
-    name: "Leather Jacket",
+    name: "Leatherjacket Fish",
     scientific: "Aluterus monoceros",
     category: "fish",
-    forms: ["Whole", "Skinless"],
-    description: "Quietly excellent — fine, sweet white flesh increasingly prized by adventurous kitchens.",
+    forms: ["Whole Frozen"],
+    description: "Whole frozen leatherjacket fish for international seafood buyers. Size grades and packing on enquiry.",
     image: leatherJacket,
+    featured: true,
   },
   {
     slug: "scad",
@@ -325,15 +325,14 @@ export const products: Product[] = [
     forms: ["Whole", "Cleaned", "Fillet", "Cubes"],
     description: "Plump, snow-white flesh with a refined bite — the chef's choice for risottos and grills.",
     image: cuttlefish,
-    featured: true,
   },
   {
     slug: "octopus",
-    name: "Octopus",
+    name: "Baby Octopus",
     scientific: "Amphioctopus membranaceus",
     category: "cephalopod",
-    forms: ["Whole", "Cleaned", "Tentacles"],
-    description: "Hand-graded for size and quality — destined for Mediterranean and Japanese kitchens.",
+    forms: ["Whole Cleaned", "Block Frozen", "Individual Frozen"],
+    description: "Whole-cleaned baby octopus, block or individually frozen and processed to buyer specifications.",
     image: octopus,
     featured: true,
   },
@@ -392,22 +391,32 @@ export const products: Product[] = [
     image: mackerel,
   },
   {
-    slug: "ribbon-fish",
-    name: "Ribbon Fish",
+    slug: "ribbon-fish-hook",
+    name: "Ribbonfish — Hook Caught",
     scientific: "Lepturacanthus savala",
     category: "fish",
-    forms: ["Whole", "Cut"],
-    description: "Long silver-bodied fish popular in export markets.",
+    forms: ["Whole", "10 kg IWP", "A & B Grades"],
+    description: "Hook-caught whole ribbonfish, individually wrapped in 10 kg cartons. Size grades: 300/500, 500/700 and 700/1000 g.",
+    image: ribbon,
+    featured: true,
+  },
+  {
+    slug: "ribbon-fish-net",
+    name: "Ribbonfish — Net Caught",
+    scientific: "Lepturacanthus savala",
+    category: "fish",
+    forms: ["Whole", "10 kg Shutter"],
+    description: "Net-caught whole ribbonfish, shutter packed in 10 kg cartons with plastic separators. Size grades and availability on enquiry.",
     image: ribbon,
     featured: true,
   },
   {
     slug: "shrimp",
     name: "Thelly Shrimp",
-    scientific: "Metapenaeus dobsoni",
+    scientific: "",
     category: "shrimp",
-    forms: ["HOSO", "HLSO", "PUD", "PD", "IQF", "Block"],
-    description: "Kerala's signature shrimp, valued for its sweet flavor and excellent export quality.",
+    forms: ["20 × 400 g", "8 kg Carton"],
+    description: "Frozen Thelly shrimp for export, packed in 8 kg master cartons (20 × 400 g). Contact us for product specifications.",
     image: shrimp,
     featured: true,
   },
@@ -419,12 +428,18 @@ export const products: Product[] = [
     forms: ["Whole", "Tubes", "Rings", "T&T"],
     description: "Premium squid processed and packed for international seafood markets.",
     image: squid,
-    featured: true,
   },
 ];
 
+const featuredOrder = ["ribbon-fish-hook", "ribbon-fish-net", "shrimp", "octopus", "leather-jacket"];
+const priority = (slug: string) => {
+  const index = featuredOrder.indexOf(slug);
+  return index < 0 ? featuredOrder.length : index;
+};
+export const products = [...catalog].sort((a, b) => priority(a.slug) - priority(b.slug));
+
 export const productCategories = [
-  { id: "featured", label: "Featured" },
+  { id: "featured", label: "Key Products" },
   { id: "fish", label: "Fish" },
   { id: "shrimp", label: "Shrimp" },
   { id: "cephalopod", label: "Cephalopods" },
