@@ -14,7 +14,7 @@ import { certifications } from "@/data/site";
 const certLogos: Record<string, string> = {
   BRCGS: brcgs,
   HACCP: haccp,
-  "ISO 22000": iso22000,
+  ISO: iso22000,
   USFDA: usfda,
   SFDA: sfda,
   FSSAI: fssai,
@@ -55,7 +55,7 @@ export function CertificationsRow() {
             Audited. Verified. <span className="italic text-[var(--gold)]">Trusted.</span>
           </h2>
           <p className="mt-5 text-muted-foreground">
-            Six independent certifications govern how we source, process, freeze and ship — so the world's most regulated markets can buy with confidence.
+            Our food safety certifications and regulatory registrations support international seafood trade. Current documentation is available on request.
           </p>
         </div>
       </div>
