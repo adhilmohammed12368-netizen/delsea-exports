@@ -5,8 +5,9 @@ import { ProductCard } from "@/components/products/product-card";
 import { Seo } from "@/components/Seo";
 
 export default function Products() {
-  const [filter, setFilter] = useState<ProductCategory | "featured">("featured");
+  const [filter, setFilter] = useState<ProductCategory | "featured" | "all">("featured");
   const filtered = useMemo(() => {
+    if (filter === "all") return products;
     if (filter === "featured") {
       return products.filter((p) => p.featured);
     }
@@ -39,10 +40,11 @@ export default function Products() {
       <section className="section-y">
         <div className="container-x">
           <div className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 md:mx-0 md:px-0">
-            {productCategories.map((c) => (
+            {[...productCategories.slice(0, 1), { id: "all" as const, label: "All Products" }, ...productCategories.slice(1)].map((c) => (
               <button
                 key={c.id}
-                onClick={() => setFilter(c.id)}
+                onClick={() => setFilter(c.id as ProductCategory | "featured" | "all")}
+                aria-pressed={filter === c.id}
                 className={`h-10 shrink-0 rounded-full border px-5 text-sm transition ${
                   filter === c.id
                     ? "border-foreground bg-foreground text-background"
