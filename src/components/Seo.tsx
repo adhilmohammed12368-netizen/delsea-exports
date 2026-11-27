@@ -50,12 +50,13 @@ export function Seo({
     setMeta("name", "description", description);
     setMeta("property", "og:title", ogTitle ?? title);
     setMeta("property", "og:description", ogDescription ?? description);
-    setMeta("property", "og:url", ogUrl);
+    const absolute = (value?: string) => value ? new URL(value, "https://www.delseaexports.in").href : undefined;
+    setMeta("property", "og:url", absolute(ogUrl));
     if (ogImage) {
-      setMeta("property", "og:image", ogImage);
-      setMeta("name", "twitter:image", ogImage);
+      setMeta("property", "og:image", absolute(ogImage));
+      setMeta("name", "twitter:image", absolute(ogImage));
     }
-    setCanonical(canonical ?? ogUrl);
+    setCanonical(absolute(canonical ?? ogUrl));
   }, [title, description, ogTitle, ogDescription, ogUrl, ogImage, canonical]);
 
   return null;
