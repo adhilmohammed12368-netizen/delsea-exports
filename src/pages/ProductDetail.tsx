@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ImageIcon } from "lucide-react";
+import { site } from "@/data/site";
 import { products } from "@/data/products";
 import { Seo } from "@/components/Seo";
 import NotFound from "@/pages/NotFound";
@@ -36,6 +37,7 @@ export default function ProductDetail() {
   const fallbackImage = product.slug === "mahi-mahi" ? undefined : product.image;
   const specs = commercial[product.slug] || [["Available forms","Confirm with export team"]];
   const enquiry = `/contact?product=${encodeURIComponent(product.slug)}`;
+  const whatsapp = `${site.whatsappUrl}?text=${encodeURIComponent(`Hello Delsea Exports, I am interested in ${product.name}. Please share specifications, availability and quotation.`)}`;
   return (
     <div className="bg-background pt-28 md:pt-36">
       <Seo title={`${product.name} | Delsea Exports India`} description={product.description} ogUrl={`/products/${product.slug}`} ogImage={gallery[0]?.url} />
@@ -55,6 +57,7 @@ export default function ProductDetail() {
             </dl>
             <p className="mt-4 text-xs text-muted-foreground">Photographs are product references, not a guarantee of current inventory. Confirm availability and final specifications before ordering.</p>
             <Link to={enquiry} className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-foreground px-6 text-sm font-medium text-background sm:w-auto">Request a quotation</Link>
+            <a href={whatsapp} target="_blank" rel="noreferrer" className="mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-full border border-foreground/20 px-6 text-sm sm:ml-3 sm:w-auto">WhatsApp enquiry</a>
           </div>
         </div>
         {gallery.length > 1 && <div className="mt-10">
