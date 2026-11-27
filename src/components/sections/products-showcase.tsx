@@ -10,7 +10,7 @@ export function ProductsShowcase() {
       <div className="container-x">
         <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
           <div className="max-w-2xl min-w-0">
-            <p className="text-eyebrow text-muted-foreground">02 — The Catch</p>
+            <p className="text-eyebrow text-muted-foreground">01 — The Catch</p>
             <h2 className="text-display-2 mt-4">
               Our <span className="italic text-[var(--gold)]">key export products</span>, processed to global spec.
             </h2>
@@ -23,7 +23,7 @@ export function ProductsShowcase() {
           </Link>
         </div>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4">
           {featured.map((p, i) => (
             <ProductCard key={p.slug} product={p} index={i} />
           ))}
