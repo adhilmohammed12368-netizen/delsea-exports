@@ -23,7 +23,7 @@ export default function Products() {
         ogDescription="Premium fish, shrimp and cephalopods from the Arabian Sea."
         ogUrl="/products"
       />
-      <header className="border-b border-foreground/10 bg-[var(--abyss)] pt-32 pb-16 text-[var(--pearl)] md:pt-40 md:pb-24">
+      <header className="border-b border-foreground/10 bg-[var(--abyss)] pt-24 pb-10 text-[var(--pearl)] md:pt-40 md:pb-24">
         <div className="container-x">
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="text-eyebrow text-white/55">
             The Catalog
@@ -56,7 +56,7 @@ export default function Products() {
             ))}
           </div>
 
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4">
             {filtered.map((p, i) => <ProductCard key={p.slug} product={p} index={i} />)}
           </div>
         </div>
