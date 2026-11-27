@@ -16,7 +16,7 @@ export function AboutSection() {
             transition={{ duration: 0.7 }}
             className="text-eyebrow text-muted-foreground"
           >
-            01 — Our Story
+            02 — Our Story
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -53,11 +53,11 @@ export function AboutSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.5 }}
-            className="grid grid-cols-3 gap-6 border-t border-foreground/10 pt-8"
+            className="grid grid-cols-3 gap-3 sm:gap-6 border-t border-foreground/10 pt-8"
           >
-            <div><dt className="font-display text-3xl">12+</dt><dd className="mt-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">Years</dd></div>
-            <div><dt className="font-display text-3xl">5</dt><dd className="mt-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">Key product lines</dd></div>
-            <div><dt className="font-display text-3xl">Global</dt><dd className="mt-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">Markets</dd></div>
+            <div><dt className="font-display text-3xl">12+</dt><dd className="mt-1 text-[10px] uppercase tracking-wide sm:text-xs text-muted-foreground">Years</dd></div>
+            <div><dt className="font-display text-3xl">5</dt><dd className="mt-1 text-[10px] uppercase tracking-wide sm:text-xs text-muted-foreground">Key product lines</dd></div>
+            <div><dt className="font-display text-3xl">Global</dt><dd className="mt-1 text-[10px] uppercase tracking-wide sm:text-xs text-muted-foreground">Markets</dd></div>
           </motion.dl>
         </div>
 
