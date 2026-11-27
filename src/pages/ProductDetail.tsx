@@ -33,6 +33,7 @@ export default function ProductDetail() {
   const gallery = Object.entries(photos).map(([path, url]) => ({ id: path.split("/").pop()!.replace(/\.webp$/, ""), url }))
     .filter(item => item.id === product.slug || item.id.startsWith(product.slug + "--"))
     .sort((a,b) => a.id === product.slug ? -1 : b.id === product.slug ? 1 : a.id.localeCompare(b.id));
+  const fallbackImage = product.slug === "mahi-mahi" ? undefined : product.image;
   const specs = commercial[product.slug] || [["Available forms","Confirm with export team"]];
   const enquiry = `/contact?product=${encodeURIComponent(product.slug)}`;
   return (
@@ -42,7 +43,7 @@ export default function ProductDetail() {
         <Link to="/products" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"><ArrowLeft className="h-4 w-4" /> Product catalogue</Link>
         <div className="mt-7 grid gap-8 lg:grid-cols-[1fr_1fr]">
           <div className="overflow-hidden rounded-2xl bg-[var(--abyss)] ring-1 ring-foreground/10">
-            {gallery[0] ? <img src={gallery[0].url} alt={captions[gallery[0].id] || product.name} className="mx-auto max-h-[560px] w-full object-contain" /> : <div className="flex aspect-[4/3] flex-col items-center justify-center gap-3 text-white/70"><ImageIcon className="h-8 w-8" /> Product photographs on request</div>}
+            {gallery[0] ? <img src={gallery[0].url} alt={captions[gallery[0].id] || product.name} className="mx-auto max-h-[560px] w-full object-contain" /> : fallbackImage ? <figure><img src={fallbackImage} alt={`Illustration of ${product.name}`} className="mx-auto max-h-[560px] w-full object-contain" /><figcaption className="p-3 text-xs text-center text-white/70">Illustrative image</figcaption></figure> : <div className="flex aspect-[4/3] flex-col items-center justify-center gap-3 text-white/70"><ImageIcon className="h-8 w-8" /> Product photographs on request</div>}
           </div>
           <div className="min-w-0">
             <p className="text-eyebrow text-muted-foreground">Seafood from India</p>
