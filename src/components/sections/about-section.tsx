@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import facility from "@/assets/facility-aerial.jpg";
+const facilityPhotos = import.meta.glob<string>("/src/assets/infrastructure/factory-exterior.webp", { eager: true, query: "?url", import: "default" });
+const originalFacility = facilityPhotos["/src/assets/infrastructure/factory-exterior.webp"];
 
 export function AboutSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -39,7 +41,7 @@ export function AboutSection() {
               </p>
 
               <p>
-                Under his leadership, Delsea Exports has successfully expanded its presence across the world, serving customers in more than 25 international markets. Today, the company is recognized as a trusted seafood export partner, combining Kerala's rich marine resources with world-class processing, food safety, and reliable logistics.
+                Under his leadership, Delsea Exports has successfully expanded its presence across the world, serving customers across international markets. Today, the company is recognized as a trusted seafood export partner, combining Kerala's rich marine resources with world-class processing, food safety, and reliable logistics.
               </p>
 
               <p>
@@ -54,8 +56,8 @@ export function AboutSection() {
             className="grid grid-cols-3 gap-6 border-t border-foreground/10 pt-8"
           >
             <div><dt className="font-display text-3xl">12+</dt><dd className="mt-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">Years</dd></div>
-            <div><dt className="font-display text-3xl">22</dt><dd className="mt-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">Species</dd></div>
-            <div><dt className="font-display text-3xl">4</dt><dd className="mt-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">Continents</dd></div>
+            <div><dt className="font-display text-3xl">5</dt><dd className="mt-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">Key product lines</dd></div>
+            <div><dt className="font-display text-3xl">Global</dt><dd className="mt-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">Markets</dd></div>
           </motion.dl>
         </div>
 
@@ -66,8 +68,8 @@ export function AboutSection() {
           className="relative aspect-[4/5] min-w-0 overflow-hidden rounded-2xl ring-1 ring-foreground/10"
         >
           <img
-            src={facility}
-            alt="Delsea Exports facility on the Kerala coast at sunset"
+            src={originalFacility || facility}
+            alt={originalFacility ? "Delsea Exports processing facility exterior" : "Illustrative coastal facility image"}
             loading="lazy"
             width={1536}
             height={1024}
