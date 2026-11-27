@@ -12,7 +12,7 @@ export function ProductsShowcase() {
           <div className="max-w-2xl min-w-0">
             <p className="text-eyebrow text-muted-foreground">02 — The Catch</p>
             <h2 className="text-display-2 mt-4">
-              A curated catalog of <span className="italic text-[var(--gold)]">22 species</span>, processed to global spec.
+              Our <span className="italic text-[var(--gold)]">key export products</span>, processed to global spec.
             </h2>
           </div>
           <Link
