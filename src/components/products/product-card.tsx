@@ -27,7 +27,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
         {image && !photo && <span className="absolute bottom-1 left-1 right-1 rounded bg-black/65 px-1 py-1 text-center text-[9px] text-white/90">Illustrative image</span>}
       </div>
       <div className="flex min-w-0 flex-1 flex-col gap-2 p-3 sm:gap-3 sm:p-5 md:p-6">
-        <h3 className="font-display text-lg leading-tight sm:text-2xl">{product.name}</h3>
+        <h3 className="font-display text-lg leading-tight sm:text-2xl"><Link to={`/products/${product.slug}`} className="hover:underline">{product.name}</Link></h3>
         {product.scientific && <p className="text-[11px] italic leading-tight text-muted-foreground sm:text-xs">{product.scientific}</p>}
         <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">{product.description}</p>
         <div className="mt-auto flex flex-wrap gap-1 pt-1">
@@ -35,6 +35,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
             <span key={form} className="rounded-full border border-foreground/12 px-2 py-0.5 text-[9px] uppercase tracking-wide text-muted-foreground sm:text-[10px]">{form}</span>
           ))}
         </div>
+        <Link to={`/products/${product.slug}`} className="text-xs font-medium text-muted-foreground hover:underline">View product details</Link>
         <Link to={`/contact?product=${encodeURIComponent(product.slug)}`}
           className="mt-1 inline-flex min-h-10 items-center justify-center rounded-full bg-foreground px-3 text-[10px] font-medium uppercase tracking-widest text-background transition hover:bg-foreground/85 sm:mt-3 sm:text-xs">Inquire</Link>
       </div>
