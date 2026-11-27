@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { z } from "zod";
 import { Mail, MapPin, Send, Check } from "lucide-react";
@@ -19,13 +20,20 @@ const schema = z.object({
 type Errors = Partial<Record<keyof z.infer<typeof schema>, string>>;
 
 export function ContactBlock({ compact = false }: { compact?: boolean }) {
+  const [searchParams] = useSearchParams();
+  const selectedProduct = products.find((p) => p.slug === searchParams.get("product"))?.name ?? "";
   const [errors, setErrors] = useState<Errors>({});
+  const [deliveryError, setDeliveryError] = useState(false);
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    if (submitting || sent) return;
+    const form = e.currentTarget;
+    setErrors({});
+    setDeliveryError(false);
+    const fd = new FormData(form);
     const data = Object.fromEntries(fd) as Record<string, string>;
     const parsed = schema.safeParse(data);
     if (!parsed.success) {
@@ -56,10 +64,10 @@ export function ContactBlock({ compact = false }: { compact?: boolean }) {
       );
 
       setSent(true);
-      (e.target as HTMLFormElement).reset();
+      form.reset();
     } catch (error) {
       console.error("EmailJS Error:", error);
-      alert("Failed to send enquiry");
+      setDeliveryError(true);
     } finally {
       setSubmitting(false);
     }
@@ -100,7 +108,8 @@ export function ContactBlock({ compact = false }: { compact?: boolean }) {
                 <select
                   id="product"
                   name="product"
-                  defaultValue=""
+                  defaultValue={selectedProduct}
+                  key={selectedProduct}
                   className="mt-2 h-12 w-full rounded-xl border border-foreground/15 bg-background px-4 text-sm outline-none transition focus:border-[var(--gold)]"
                 >
                   <option value="">Select species (optional)</option>
@@ -124,6 +133,11 @@ export function ContactBlock({ compact = false }: { compact?: boolean }) {
               {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
             </div>
 
+            {deliveryError && (
+              <p role="alert" className="mt-5 text-sm text-destructive">
+                Your enquiry could not be sent. Please try again or email us at <a className="underline" href={`mailto:${site.email}`}>{site.email}</a>.
+              </p>
+            )}
             <div className="mt-8 flex flex-wrap items-center justify-between gap-3">
               <p className="text-xs text-muted-foreground">We reply within one business day.</p>
               <button
